@@ -53,6 +53,51 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Shoot"",
+                    ""type"": ""Button"",
+                    ""id"": ""62a41341-8147-4b3e-ba43-e2462d89ef6b"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Reload"",
+                    ""type"": ""Button"",
+                    ""id"": ""80ba885d-4563-493f-87cd-52d87093d052"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwichWeaponMod"",
+                    ""type"": ""Button"",
+                    ""id"": ""0c5665d6-4ab5-4347-88ed-9197ead29c05"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""SwapWeapon"",
+                    ""type"": ""Value"",
+                    ""id"": ""51893992-404f-4879-a9a9-3fe47ad8d93e"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Interact"",
+                    ""type"": ""Button"",
+                    ""id"": ""8e1efbe7-bc92-41ca-a623-e6687f5d63c1"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -132,6 +177,111 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9b234be3-eb6d-4ee0-872d-b44e6a77832c"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Shoot"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dc9c1e9c-2fe4-442c-8174-6a53804fba16"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Reload"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""605e2014-bf12-4213-a2b8-6ef3bae08db6"",
+                    ""path"": ""<Keyboard>/t"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwichWeaponMod"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""5d0ab640-6b27-47c7-850c-2708220dde00"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapWeapon"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""8fb555ea-cb94-4239-890c-daf962d19876"",
+                    ""path"": ""<Mouse>/scroll/down"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""ca272ad5-f84e-48a8-b92e-b7c71d45d476"",
+                    ""path"": ""<Mouse>/scroll/up"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""SwapWeapon"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""a4575f4a-5bfd-40c4-8c47-dfc179970ede"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Interact"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
+        },
+        {
+            ""name"": ""Helpers"",
+            ""id"": ""5a459813-9c1f-47f6-8fa4-adffe063b71d"",
+            ""actions"": [
+                {
+                    ""name"": ""MousePos"",
+                    ""type"": ""Value"",
+                    ""id"": ""2a94c9d9-d436-4d0b-9ebe-7e05c0b43fa0"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""a8cca8fb-96f5-4e78-a868-5c9a28686140"",
+                    ""path"": ""<Mouse>/position"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MousePos"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -143,6 +293,14 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Jump = m_Player.FindAction("Jump", throwIfNotFound: true);
         m_Player_Look = m_Player.FindAction("Look", throwIfNotFound: true);
+        m_Player_Shoot = m_Player.FindAction("Shoot", throwIfNotFound: true);
+        m_Player_Reload = m_Player.FindAction("Reload", throwIfNotFound: true);
+        m_Player_SwichWeaponMod = m_Player.FindAction("SwichWeaponMod", throwIfNotFound: true);
+        m_Player_SwapWeapon = m_Player.FindAction("SwapWeapon", throwIfNotFound: true);
+        m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        // Helpers
+        m_Helpers = asset.FindActionMap("Helpers", throwIfNotFound: true);
+        m_Helpers_MousePos = m_Helpers.FindAction("MousePos", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -207,6 +365,11 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Jump;
     private readonly InputAction m_Player_Look;
+    private readonly InputAction m_Player_Shoot;
+    private readonly InputAction m_Player_Reload;
+    private readonly InputAction m_Player_SwichWeaponMod;
+    private readonly InputAction m_Player_SwapWeapon;
+    private readonly InputAction m_Player_Interact;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -214,6 +377,11 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Jump => m_Wrapper.m_Player_Jump;
         public InputAction @Look => m_Wrapper.m_Player_Look;
+        public InputAction @Shoot => m_Wrapper.m_Player_Shoot;
+        public InputAction @Reload => m_Wrapper.m_Player_Reload;
+        public InputAction @SwichWeaponMod => m_Wrapper.m_Player_SwichWeaponMod;
+        public InputAction @SwapWeapon => m_Wrapper.m_Player_SwapWeapon;
+        public InputAction @Interact => m_Wrapper.m_Player_Interact;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -232,6 +400,21 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Look.started += instance.OnLook;
             @Look.performed += instance.OnLook;
             @Look.canceled += instance.OnLook;
+            @Shoot.started += instance.OnShoot;
+            @Shoot.performed += instance.OnShoot;
+            @Shoot.canceled += instance.OnShoot;
+            @Reload.started += instance.OnReload;
+            @Reload.performed += instance.OnReload;
+            @Reload.canceled += instance.OnReload;
+            @SwichWeaponMod.started += instance.OnSwichWeaponMod;
+            @SwichWeaponMod.performed += instance.OnSwichWeaponMod;
+            @SwichWeaponMod.canceled += instance.OnSwichWeaponMod;
+            @SwapWeapon.started += instance.OnSwapWeapon;
+            @SwapWeapon.performed += instance.OnSwapWeapon;
+            @SwapWeapon.canceled += instance.OnSwapWeapon;
+            @Interact.started += instance.OnInteract;
+            @Interact.performed += instance.OnInteract;
+            @Interact.canceled += instance.OnInteract;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -245,6 +428,21 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Look.started -= instance.OnLook;
             @Look.performed -= instance.OnLook;
             @Look.canceled -= instance.OnLook;
+            @Shoot.started -= instance.OnShoot;
+            @Shoot.performed -= instance.OnShoot;
+            @Shoot.canceled -= instance.OnShoot;
+            @Reload.started -= instance.OnReload;
+            @Reload.performed -= instance.OnReload;
+            @Reload.canceled -= instance.OnReload;
+            @SwichWeaponMod.started -= instance.OnSwichWeaponMod;
+            @SwichWeaponMod.performed -= instance.OnSwichWeaponMod;
+            @SwichWeaponMod.canceled -= instance.OnSwichWeaponMod;
+            @SwapWeapon.started -= instance.OnSwapWeapon;
+            @SwapWeapon.performed -= instance.OnSwapWeapon;
+            @SwapWeapon.canceled -= instance.OnSwapWeapon;
+            @Interact.started -= instance.OnInteract;
+            @Interact.performed -= instance.OnInteract;
+            @Interact.canceled -= instance.OnInteract;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -262,10 +460,65 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         }
     }
     public PlayerActions @Player => new PlayerActions(this);
+
+    // Helpers
+    private readonly InputActionMap m_Helpers;
+    private List<IHelpersActions> m_HelpersActionsCallbackInterfaces = new List<IHelpersActions>();
+    private readonly InputAction m_Helpers_MousePos;
+    public struct HelpersActions
+    {
+        private @InputActions m_Wrapper;
+        public HelpersActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @MousePos => m_Wrapper.m_Helpers_MousePos;
+        public InputActionMap Get() { return m_Wrapper.m_Helpers; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(HelpersActions set) { return set.Get(); }
+        public void AddCallbacks(IHelpersActions instance)
+        {
+            if (instance == null || m_Wrapper.m_HelpersActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_HelpersActionsCallbackInterfaces.Add(instance);
+            @MousePos.started += instance.OnMousePos;
+            @MousePos.performed += instance.OnMousePos;
+            @MousePos.canceled += instance.OnMousePos;
+        }
+
+        private void UnregisterCallbacks(IHelpersActions instance)
+        {
+            @MousePos.started -= instance.OnMousePos;
+            @MousePos.performed -= instance.OnMousePos;
+            @MousePos.canceled -= instance.OnMousePos;
+        }
+
+        public void RemoveCallbacks(IHelpersActions instance)
+        {
+            if (m_Wrapper.m_HelpersActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        public void SetCallbacks(IHelpersActions instance)
+        {
+            foreach (var item in m_Wrapper.m_HelpersActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_HelpersActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    public HelpersActions @Helpers => new HelpersActions(this);
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnLook(InputAction.CallbackContext context);
+        void OnShoot(InputAction.CallbackContext context);
+        void OnReload(InputAction.CallbackContext context);
+        void OnSwichWeaponMod(InputAction.CallbackContext context);
+        void OnSwapWeapon(InputAction.CallbackContext context);
+        void OnInteract(InputAction.CallbackContext context);
+    }
+    public interface IHelpersActions
+    {
+        void OnMousePos(InputAction.CallbackContext context);
     }
 }
