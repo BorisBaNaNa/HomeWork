@@ -7,7 +7,6 @@ public class Bullet : MonoBehaviour
 
     Coroutine _destroyCoroutine;
     private LayerMask _collideLayer;
-    private Vector3 _lastPos;
     private float _damage;
     private float _speed;
     private bool isActivated;
@@ -17,7 +16,6 @@ public class Bullet : MonoBehaviour
         _damage = damage;
         _speed = statsBullet.Speed;
         _collideLayer = statsBullet.CollideLayer;
-        _lastPos = transform.position;
 
         //_collider.enabled = true;
         isActivated = true;
@@ -36,7 +34,7 @@ public class Bullet : MonoBehaviour
     //    if (!isActivated)
     //        return;
 
-    //    MoveToTarget(Time.deltaTime);
+    //    Move(Time.deltaTime);
     //}
 
     private void FixedUpdate()
@@ -44,20 +42,20 @@ public class Bullet : MonoBehaviour
         if (!isActivated)
             return;
 
-        float checkCollideDistance = MoveToTarget(Time.fixedDeltaTime);
+        Vector3 translation = _speed * Time.deltaTime * Vector3.forward;
+        float checkCollideDistance = translation.magnitude;
 
-        if (Physics.Raycast(_lastPos, transform.forward, out RaycastHit raycastHit, checkCollideDistance, _collideLayer.value))
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit raycastHit, checkCollideDistance, _collideLayer.value))
         {
+            transform.position = raycastHit.point;
             OnCollideAction(raycastHit);
         }
-        _lastPos = transform.position;
+        else Move(translation);
     }
 
-    private float MoveToTarget(float deltaTime)
+    private void Move(Vector3 translation)
     {
-        Vector3 translation = _speed * deltaTime * Vector3.forward;
         transform.Translate(translation, Space.Self);
-        return translation.magnitude;
     }
 
     private void OnCollideAction(RaycastHit raycastHit)
