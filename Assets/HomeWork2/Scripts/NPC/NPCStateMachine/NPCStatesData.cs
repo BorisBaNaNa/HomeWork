@@ -2,8 +2,7 @@
 
 public class NPCStatesData
 {
-    public Transform CurrentMovementTarget;
-
+    public Transform CurrentMovementTarget { get; set; }
     public Transform SleepPoint { get; private set; }
     public Transform WorkPoint { get; private set; }
 

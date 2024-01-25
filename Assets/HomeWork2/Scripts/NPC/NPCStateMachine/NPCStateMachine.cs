@@ -4,7 +4,10 @@ public class NPCStateMachine : BaseStateMachine
 {
     public NPCStateMachine(Character character, (Transform workPoint, Transform sleepPoint)targetPoints, (float sleepDur, float workDur)statesConf)
     {
-        var statesData = new NPCStatesData(targetPoints.sleepPoint, targetPoints.workPoint);
+        var statesData = new NPCStatesData(targetPoints.sleepPoint, targetPoints.workPoint)
+        {
+            CurrentMovementTarget = targetPoints.workPoint
+        };
 
         _states = new IState[]
         {

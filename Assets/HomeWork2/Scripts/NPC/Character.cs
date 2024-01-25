@@ -17,7 +17,7 @@ public class Character : MonoBehaviour, IMovement
     private void Awake()
     {
         _npcStateMachine = new(this, (_workPoint, _sleepPoint), (_sleepDuration, _workDuration));
-        _npcStateMachine.SetStartState<SleepState>();
+        _npcStateMachine.SetStartState<MoveToTargetState>();
     }
 
     private void OnValidate()
