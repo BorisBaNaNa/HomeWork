@@ -98,6 +98,24 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EditHP"",
+                    ""type"": ""Button"",
+                    ""id"": ""a34c670b-e7ba-499d-9158-52ce36c14934"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""EditLvl"",
+                    ""type"": ""Button"",
+                    ""id"": ""d74074ca-6f72-452b-9817-29504c5e428a"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -254,6 +272,50 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""Interact"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""1D Axis"",
+                    ""id"": ""0f29e7f1-04ac-4e32-8d4e-786e66e47748"",
+                    ""path"": ""1DAxis"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EditHP"",
+                    ""isComposite"": true,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": ""negative"",
+                    ""id"": ""c8436768-9e97-48d7-a12b-ed488fa2837c"",
+                    ""path"": ""<Keyboard>/z"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EditHP"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": ""positive"",
+                    ""id"": ""50bad1b6-5355-4a06-833f-55774000912c"",
+                    ""path"": ""<Keyboard>/x"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EditHP"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""982c1971-59dd-48ed-8532-a860156e2e8b"",
+                    ""path"": ""<Keyboard>/b"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""EditLvl"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -298,6 +360,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_Player_SwichWeaponMod = m_Player.FindAction("SwichWeaponMod", throwIfNotFound: true);
         m_Player_SwapWeapon = m_Player.FindAction("SwapWeapon", throwIfNotFound: true);
         m_Player_Interact = m_Player.FindAction("Interact", throwIfNotFound: true);
+        m_Player_EditHP = m_Player.FindAction("EditHP", throwIfNotFound: true);
+        m_Player_EditLvl = m_Player.FindAction("EditLvl", throwIfNotFound: true);
         // Helpers
         m_Helpers = asset.FindActionMap("Helpers", throwIfNotFound: true);
         m_Helpers_MousePos = m_Helpers.FindAction("MousePos", throwIfNotFound: true);
@@ -370,6 +434,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_SwichWeaponMod;
     private readonly InputAction m_Player_SwapWeapon;
     private readonly InputAction m_Player_Interact;
+    private readonly InputAction m_Player_EditHP;
+    private readonly InputAction m_Player_EditLvl;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -382,6 +448,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         public InputAction @SwichWeaponMod => m_Wrapper.m_Player_SwichWeaponMod;
         public InputAction @SwapWeapon => m_Wrapper.m_Player_SwapWeapon;
         public InputAction @Interact => m_Wrapper.m_Player_Interact;
+        public InputAction @EditHP => m_Wrapper.m_Player_EditHP;
+        public InputAction @EditLvl => m_Wrapper.m_Player_EditLvl;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -415,6 +483,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Interact.started += instance.OnInteract;
             @Interact.performed += instance.OnInteract;
             @Interact.canceled += instance.OnInteract;
+            @EditHP.started += instance.OnEditHP;
+            @EditHP.performed += instance.OnEditHP;
+            @EditHP.canceled += instance.OnEditHP;
+            @EditLvl.started += instance.OnEditLvl;
+            @EditLvl.performed += instance.OnEditLvl;
+            @EditLvl.canceled += instance.OnEditLvl;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -443,6 +517,12 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @Interact.started -= instance.OnInteract;
             @Interact.performed -= instance.OnInteract;
             @Interact.canceled -= instance.OnInteract;
+            @EditHP.started -= instance.OnEditHP;
+            @EditHP.performed -= instance.OnEditHP;
+            @EditHP.canceled -= instance.OnEditHP;
+            @EditLvl.started -= instance.OnEditLvl;
+            @EditLvl.performed -= instance.OnEditLvl;
+            @EditLvl.canceled -= instance.OnEditLvl;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -516,6 +596,8 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         void OnSwichWeaponMod(InputAction.CallbackContext context);
         void OnSwapWeapon(InputAction.CallbackContext context);
         void OnInteract(InputAction.CallbackContext context);
+        void OnEditHP(InputAction.CallbackContext context);
+        void OnEditLvl(InputAction.CallbackContext context);
     }
     public interface IHelpersActions
     {
